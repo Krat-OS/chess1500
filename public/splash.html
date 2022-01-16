@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Chess1500</title>
+    <link rel="stylesheet" href="interface.css">
+    
+
+</head>
+<body>
+    <div id="overlay"><img id="delftlogo" src="rsc/delftlogo.png"></div>
+    <div id="interface">
+
+        <br><br><br><br>
+
+        <div style="z-index: 900"><h1 style="font-size: 72px; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; text-align: center; font-style: italic; -webkit-text-stroke: 0.5px white">
+            CHESS <span style="color: white;font-style: normal; -webkit-text-stroke: 0.5px black;">1500</span>
+        </h1></div>
+
+        <br><br><br><br><br><br><br><br>
+
+        <div class="play">
+            
+            <div id="code">
+
+        
+                <div id="playcode">
+        
+                    <input id="input" placeholder="Game Code" maxlength="15" autofocus="autofocus"> 
+        
+                    <button id="btn" type="submit" onclick="play_button()">PLAY</button>
+        
+                </div>
+        
+            </div>
+
+        </div>
+
+
+        
+    </div>
+    <script>
+        const btnCreate = document.getElementById("btn");
+
+        let clientId = null;
+        let ws = new WebSocket("ws://localhost:9090")
+
+        btnCreate.addEventListener("click", e => {
+            const payLoad = {
+                "method": "create", 
+                "clientId": clientId
+            }
+
+        })
+        function play_button() {
+            window.location.href="game.html";
+        }
+    </script>
+
+</body>
+</html>
